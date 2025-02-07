@@ -1,6 +1,7 @@
 from instagrapi import Client
 
 cl = Client()
+cl.delay_range = [1, 3]
 cl.login("itsz_mehek", "slayGirl")
 
 user_id = cl.user_id_from_username("itsz_mehek")
