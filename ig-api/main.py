@@ -75,4 +75,3 @@ def getPosts(username, password):
     return profile
 
 
-getPosts("psychoticalan", "lueal040106Nn#")
