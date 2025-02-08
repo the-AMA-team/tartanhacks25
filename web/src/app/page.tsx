@@ -1,6 +1,7 @@
 "use client";
 import { useRef, useState } from "react";
 import axios from "axios";
+import ComputersCanvas from "./templates/Model";
 
 export default function Home() {
   const usernameRef = useRef<HTMLInputElement>(null);
@@ -14,18 +15,9 @@ export default function Home() {
     username: string,
     password: string
   ): Promise<InstagramData> => {
-    return {
-      bio: "bio",
-      posts: [
-        { urls: ["url1", "url2"], caption: "post-caption" },
-        { urls: ["url1", "url2"], caption: "post-caption" },
-      ],
-    } as InstagramData;
-
     const res = await axios
-      .get(`/u/${username}/p/${password}`)
+      .get(`http://127.0.0.1:5000/u/${username}/p/${password}`)
       .then(function (response) {
-        console.log(response);
         return response.data;
       })
       .catch(function (error) {
@@ -45,6 +37,12 @@ export default function Home() {
 
     // reuse this data to generate website params
   };
+
+  return (
+    <div>
+      <ComputersCanvas />
+    </div>
+  );
 
   return (
     <div className="flex justify-center items-center min-h-screen">
