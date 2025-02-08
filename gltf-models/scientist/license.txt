@@ -1,0 +1,11 @@
+Model Information:
+* title:	Science Lab Lowpoly
+* source:	https://sketchfab.com/3d-models/science-lab-lowpoly-e0d65331317b424ca82d317c27652f7f
+* author:	Helyx Silveira (https://sketchfab.com/helyxsilveira)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Science Lab Lowpoly" (https://sketchfab.com/3d-models/science-lab-lowpoly-e0d65331317b424ca82d317c27652f7f) by Helyx Silveira (https://sketchfab.com/helyxsilveira) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
