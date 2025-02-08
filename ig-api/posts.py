@@ -54,7 +54,10 @@ def getPosts(username, password):
                     )
                 )
             except:
-                print("something bad occurred")
+                try:
+                    posts.append(Post(medias[i].image_versions2["candidates"][0]["url"], medias[i].caption_text))
+                except:
+                    print("something bad occurred")
 
     profile = Profile(
         dict["username"], dict["profile_pic_url"], dict["biography"], posts
