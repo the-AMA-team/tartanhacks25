@@ -6,8 +6,8 @@ export default function Home() {
   const passRef = useRef(null);
 
   return (
-    <div className="flex justify-center">
-      <div className="bg-blue-50 px-5 py-14 m-10 w-1/3 rounded-lg shadow-sm">
+    <div className="flex justify-center items-center min-h-screen">
+      <div className="bg-blue-50 px-5 py-14 w-1/3 rounded-lg shadow-md">
         <div className="m-auto w-1/2">
           <input
             type="text"
