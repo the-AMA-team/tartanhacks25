@@ -27,7 +27,7 @@ const WebsiteTemplate: React.FC<WebsiteTemplateProps> = ({
           );
         })}
       </div>
-      <div className="">
+      <div className="mt-16">
         {sections.map((section, idx) => {
           return (
             <div key={idx} className="w-4/5 m-auto">
@@ -36,7 +36,7 @@ const WebsiteTemplate: React.FC<WebsiteTemplateProps> = ({
               >
                 {section.title}
               </div>
-              <div className={`text-${theme.priamryText}`}>
+              <div className={`text-${theme.priamryText} mb-8`}>
                 {section.content}
               </div>
             </div>
