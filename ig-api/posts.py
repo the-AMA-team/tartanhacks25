@@ -27,7 +27,6 @@ class Post:
 
 
 def getPosts(username, password, cl):
-
     print("Username: ", username)
     print("Password: ", password)
 
@@ -48,7 +47,7 @@ def getPosts(username, password, cl):
 
     posts = []
 
-    for i in range(len(medias)) if len(medias) <= 20 else 20:
+    for i in range(len(medias)) if len(medias) <= 4 else range(4):
         if medias[i].thumbnail_url != None:
             posts.append(Post(medias[i].thumbnail_url, medias[i].caption_text))
         else:
@@ -61,7 +60,12 @@ def getPosts(username, password, cl):
                 )
             except:
                 try:
-                    posts.append(Post(medias[i].image_versions2["candidates"][0]["url"], medias[i].caption_text))
+                    posts.append(
+                        Post(
+                            medias[i].image_versions2["candidates"][0]["url"],
+                            medias[i].caption_text,
+                        )
+                    )
                 except:
                     print("something bad occurred")
 
@@ -82,5 +86,3 @@ def getPosts(username, password, cl):
 
     # print(cl.account_info().model_dump())
     return profile
-
-

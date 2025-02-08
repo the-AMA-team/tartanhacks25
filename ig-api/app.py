@@ -11,15 +11,17 @@ CORS(app)
 cl = Client()
 # cl.delay_range = [1, 3]
 
+
 @app.route("/test")
 def stuff():
     return "<p> hi <p>"
 
+
 @app.route("/u/<username>/p/<password>")
 def get_data(username, password):
-
-    profile =  posts.getPosts(username, password, cl)
+    profile = posts.getPosts(username, password, cl)
 
     print(profile)
 
     return jsonify({"Profile": json.dumps(profile.__dict__)})
+    # returns {profile dictionary --> posts key: [array of posts {post 1 dictionary}, {post 2 dictionary --> url key: url value, caption key: caption value}] }
