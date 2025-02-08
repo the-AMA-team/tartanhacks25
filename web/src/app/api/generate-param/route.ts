@@ -1,5 +1,5 @@
 import {systemPrompt} from './systemPrompt';
-import {userPrompt} from './userPrompt';
+//import {userPrompt} from './userPrompt';
 import OpenAI from 'openai';
 import { NextRequest, NextResponse } from 'next/server';
 
@@ -9,9 +9,6 @@ console.log("hello");
 
 // graveyard for the non working stuf 🪦🪦🪦🪦🪦🪦🪦🪦🪦🪦🪦🪦
 
-
-// WORKING STUFF BELOW. DO NOT CHANGE YET
-
 // POST is used to send data to a server to create/update a resource
 
 // dummy temp stuff
@@ -20,21 +17,24 @@ const openai = new OpenAI({
     });
 
 
-// export async function POST(req: NextRequest) {
-//    const openai = new OpenAI({ // creates new openai client 
-//      apiKey: process.env.OPENAI_API_KEY, // accesses the api key from the .env file
-//    });
+export async function POST(req: NextRequest) {
+   const openai = new OpenAI({ // creates new openai client 
+     apiKey: process.env.OPENAI_API_KEY, // accesses the api key from the .env file
+   });
 
-//    try {
-//      const {resume, instagramData} = await req.json(); // resume is a pdf; instagramData is a json object
+   try {
+     const {resume, instagramData} = await req.json(); // resume is a string; instagramData is a json object
 
 
-//      if (!event) {
-//        return NextResponse.json(
-//          { error: 'Invalid or missing prompt' },
-//          { status: 400 }
-//        );
-//      } // checks if the thingy has stuff inside or if it is empty
+     if (!event) {
+       return NextResponse.json(
+         { error: 'Invalid or missing prompt' },
+         { status: 400 }
+       );
+     } // checks if the thingy has stuff inside or if it is empty
+
+     // NEED TO BUILD THE USER PROMPT HERE
+      const userPrompt = `instagram: ${instagramData} resume: ${resume}`;
 
      const local_systemPrompt = systemPrompt; // the system prompt is a set of instructions that tells the model how to behave
      const local_userPrompt = userPrompt; // the user prompt is the input that the model will respond to
@@ -52,15 +52,15 @@ const openai = new OpenAI({
      const response = completion.choices[0].message.content; //chatgpt returns an array of choices, so u chose the first one or something idk
      console.log(response);
 
-//     // Log the validated portfolio
-//     console.log(event, response);
+    // Log the validated portfolio
+    console.log(event, response);
 
-//     return NextResponse.json(response);
-//   } catch (error) {
-//     console.error("Error: ", error);
-//     return NextResponse.json(
-//       { error: 'Failed to generate delta information' },
-//       { status: 500 }
-//     );
-//   }
-// }
+    return NextResponse.json(response);
+  } catch (error) {
+    console.error("Error: ", error);
+    return NextResponse.json(
+      { error: 'mehek messed up' },
+      { status: 500 }
+    );
+  }
+}
