@@ -1,7 +1,9 @@
 "use client";
 import { useRef, useState } from "react";
 import axios from "axios";
-import ComputersCanvas from "./templates/Model";
+import ModelCanvas from "./templates/Model";
+import WebsiteTemplate from "./templates/Template";
+import { ModelType, InstagramData } from "@/types";
 
 export default function Home() {
   const usernameRef = useRef<HTMLInputElement>(null);
@@ -39,9 +41,19 @@ export default function Home() {
   };
 
   return (
-    <div>
-      <ComputersCanvas />
-    </div>
+    <WebsiteTemplate
+      title="Hello, im me"
+      caption="wassup"
+      categoryCards={["1", "2", "3", "4"]}
+      model={ModelType.chef}
+      sections={[{ title: "title 1", content: "content" }]}
+      theme={{
+        start: "blue-600",
+        end: "blue-900",
+        priamryText: "white",
+        accentText: "indigo-800",
+      }}
+    />
   );
 
   return (

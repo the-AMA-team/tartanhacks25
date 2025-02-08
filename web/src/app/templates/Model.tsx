@@ -11,9 +11,10 @@
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
+import { ModelType } from "@/types";
 
-const Computers = () => {
-  const computer = useGLTF("./gltf-models/coder/scene.gltf");
+const Model: React.FC<{ model: ModelType }> = ({ model }) => {
+  const computer = useGLTF(`./gltf-models/${model}/scene.gltf`);
 
   return (
     <mesh>
@@ -37,7 +38,7 @@ const Computers = () => {
   );
 };
 
-const ComputersCanvas = () => {
+const ModelCanvas: React.FC<{ model: ModelType }> = ({ model }) => {
   return (
     <Canvas
       frameloop="demand"
@@ -52,7 +53,7 @@ const ComputersCanvas = () => {
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
-        <Computers />
+        <Model model={model} />
       </Suspense>
 
       <Preload all />
@@ -60,4 +61,4 @@ const ComputersCanvas = () => {
   );
 };
 
-export default ComputersCanvas;
+export default ModelCanvas;
