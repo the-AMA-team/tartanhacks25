@@ -1,15 +1,17 @@
 from instagrapi import Client
 
+
 class Profile:
     def __init__(self, username, profile_pic, bio, posts):
         self.username = username
         self.profile_pic = profile_pic
         self.bio = bio
         self.posts = posts
-    
+
     def __str__(self):
         return "" + self.username + " " + str(self.profile_pic) + " " + self.bio
-        
+
+
 class Post:
     def __init__(self, url, caption):
         self.url = url
@@ -18,8 +20,8 @@ class Post:
     def __str__(self):
         return "" + str(self.url) + " " + self.caption
 
-def getPosts(username, password):
 
+def getPosts(username, password):
     cl = Client()
     cl.delay_range = [1, 3]
 
@@ -33,7 +35,7 @@ def getPosts(username, password):
 
     medias = cl.user_medias(user_id, 20)
     # print("Medias", medias)
-    dict = cl.account_info().model_dump() # not sure if it is actually a dictionary
+    dict = cl.account_info().model_dump()  # not sure if it is actually a dictionary
     keys_list = list(dict.keys())
 
     # print(keys_list)
@@ -44,14 +46,21 @@ def getPosts(username, password):
         if medias[i].thumbnail_url != None:
             posts.append(Post(medias[i].thumbnail_url, medias[i].caption_text))
         else:
-            #lmao
-            posts.append(Post(medias[i].image_versions2["candidates"][0]["url"], medias[i].caption_text))
+            try:
+                posts.append(
+                    Post(
+                        medias[i].resources[0].thumbnail_url,
+                        medias[i].caption_text,
+                    )
+                )
+            except:
+                print("something bad occurred")
 
+    profile = Profile(
+        dict["username"], dict["profile_pic_url"], dict["biography"], posts
+    )
 
-
-    profile = Profile(dict["username"], dict["profile_pic_url"], dict["biography"], posts)
-
-    print("medias 0", medias[0])
+    # print("medias 0", medias[0])
 
     print("Profile: ")
     print(profile)
@@ -62,6 +71,8 @@ def getPosts(username, password):
     # for i in range(len(keys_list)):
     #     print(keys_list[i])
 
-    #print(cl.account_info().model_dump())
+    # print(cl.account_info().model_dump())
     return profile
 
+
+getPosts("psychoticalan", "lueal040106Nn#")
