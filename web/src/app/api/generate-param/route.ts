@@ -11,21 +11,21 @@ const openai = new OpenAI({
     });
 
 
-// export async function POST(req: NextRequest) {
-//    const openai = new OpenAI({ // creates new openai client 
-//      apiKey: process.env.OPENAI_API_KEY, // accesses the api key from the .env file
-//    });
+ export async function POST(req: NextRequest) {
+   const openai = new OpenAI({ // creates new openai client 
+     apiKey: process.env.OPENAI_API_KEY, // accesses the api key from the .env file
+   });
 
-//    try {
-//      const {resume, instagramData} = await req.json(); // resume is a pdf; instagramData is a json object
+   try {
+     const {resume, instagramData} = await req.json(); // resume is a pdf; instagramData is a json object
 
 
-//      if (!event) {
-//        return NextResponse.json(
-//          { error: 'Invalid or missing prompt' },
-//          { status: 400 }
-//        );
-//      } // checks if the thingy has stuff inside or if it is empty
+     if (!event) {
+       return NextResponse.json(
+         { error: 'Invalid or missing prompt' },
+         { status: 400 }
+       );
+     } // checks if the thingy has stuff inside or if it is empty
 
      const systemPrompt = "You are Uncle Iroh from Avatar the last Airbender"; // the system prompt is a set of instructions that tells the model how to behave
      const contentPrompt = "Will I win at TartanHacks? I think my idea is pretty fire 🔥"
@@ -41,17 +41,15 @@ const openai = new OpenAI({
      });
 
      const response = completion.choices[0].message.content; //chatgpt returns an array of choices, so u chose the first one or something idk
+     // logingingnging the response --> should be a dictionary!!
      console.log(response);
 
-//     // Log the validated portfolio
-//     console.log(event, response);
-
-//     return NextResponse.json(response);
-//   } catch (error) {
-//     console.error("Error: ", error);
-//     return NextResponse.json(
-//       { error: 'Failed to generate delta information' },
-//       { status: 500 }
-//     );
-//   }
-// }
+    return NextResponse.json(response);
+  } catch (error) {
+    console.error("Error: ", error);
+    return NextResponse.json(
+      { error: 'mehek messed up' },
+      { status: 500 }
+    );
+  }
+}
