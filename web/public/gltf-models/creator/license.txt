@@ -1,0 +1,11 @@
+Model Information:
+* title:	Skyforge Weapon ART
+* source:	https://sketchfab.com/3d-models/skyforge-weapon-art-2926db067ca740519e55211d5d081f41
+* author:	Sunny Man (https://sketchfab.com/sunnyman)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Skyforge Weapon ART" (https://sketchfab.com/3d-models/skyforge-weapon-art-2926db067ca740519e55211d5d081f41) by Sunny Man (https://sketchfab.com/sunnyman) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

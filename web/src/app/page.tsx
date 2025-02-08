@@ -1,6 +1,9 @@
 "use client";
 import { useRef, useState } from "react";
 import axios from "axios";
+import ModelCanvas from "./templates/Model";
+import WebsiteTemplate from "./templates/Template";
+import { ModelType, InstagramData } from "@/types";
 
 export default function Home() {
   const usernameRef = useRef<HTMLInputElement>(null);
@@ -14,18 +17,9 @@ export default function Home() {
     username: string,
     password: string
   ): Promise<InstagramData> => {
-    return {
-      bio: "bio",
-      posts: [
-        { urls: ["url1", "url2"], caption: "post-caption" },
-        { urls: ["url1", "url2"], caption: "post-caption" },
-      ],
-    } as InstagramData;
-
     const res = await axios
-      .get(`/u/${username}/p/${password}`)
+      .get(`http://127.0.0.1:5000/u/${username}/p/${password}`)
       .then(function (response) {
-        console.log(response);
         return response.data;
       })
       .catch(function (error) {
@@ -45,6 +39,22 @@ export default function Home() {
 
     // reuse this data to generate website params
   };
+
+  return (
+    <WebsiteTemplate
+      title="Hello, im me"
+      caption="wassup"
+      categoryCards={["1", "2", "3", "4"]}
+      model={ModelType.chef}
+      sections={[{ title: "title 1", content: "content" }]}
+      theme={{
+        start: "blue-600",
+        end: "blue-900",
+        priamryText: "white",
+        accentText: "indigo-800",
+      }}
+    />
+  );
 
   return (
     <div className="flex justify-center items-center min-h-screen">
