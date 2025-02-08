@@ -40,7 +40,7 @@ def getPosts(username, password):
 
     posts = []
 
-    for i in range(len(medias)):
+    for i in range(len(medias)) if len(medias <= 20) else 20:
         if medias[i].thumbnail_url != None:
             posts.append(Post(medias[i].thumbnail_url, medias[i].caption_text))
         else:
