@@ -1,7 +1,7 @@
 interface InstagramData {
   bio: string;
   posts: {
-    urls: string[];
+    url: string;
     caption: string;
   }[];
 }
