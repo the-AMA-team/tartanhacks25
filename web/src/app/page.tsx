@@ -1,9 +1,27 @@
 "use client";
 import { useRef } from "react";
+import axios from "axios";
+
+axios.defaults.baseURL = "http://127.0.0.1:5000";
 
 export default function Home() {
-  const usernameRef = useRef(null);
-  const passRef = useRef(null);
+  const usernameRef = useRef<HTMLInputElement>(null);
+  const passRef = useRef<HTMLInputElement>(null);
+
+  const handleSignIn = async (username: string, password: string) => {
+    console.log(username, password);
+    await axios
+      .get(`/u/${username}/p/${password}`)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+  };
 
   return (
     <div className="flex justify-center items-center min-h-screen">
@@ -26,7 +44,15 @@ export default function Home() {
           />
         </div>
         <div className="m-auto w-1/2">
-          <button className="bg-blue-500 w-full p-2 rounded-md text-white m-1">
+          <button
+            className="bg-blue-500 w-full p-2 rounded-md text-white m-1"
+            onClick={() =>
+              handleSignIn(
+                usernameRef.current?.value as string,
+                passRef.current?.value as string
+              )
+            }
+          >
             Sign In
           </button>
         </div>
