@@ -1,17 +1,71 @@
-// const Model = ({ modelName }) => {
-//   return (
-//     <div>
-//       <div>
-//         <div></div>
-//       </div>
-//     </div>
-//   );
-// };
-
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import { ModelType } from "@/types";
+
+const models = {
+  activist: {
+    filename: "activist",
+    scale: 3,
+    position: [-0.01, -3.57, -0.1],
+  },
+  // this model looks like shit
+  athlete: {
+    filename: "athlete",
+    scale: 0.1,
+    position: [-0.01, -3.2, -0.1],
+  },
+  chef: {
+    filename: "chef",
+    scale: 2,
+    position: [-0.01, -3.2, -0.1],
+  },
+  coder: {
+    filename: "coder",
+    scale: 0.75,
+    position: [-0.01, -3.25, -1.5],
+  },
+  creator: {
+    filename: "creator",
+    scale: 3,
+    position: [-0.01, -3.2, -0.1],
+  },
+  explorer: {
+    filename: "explorer",
+    scale: 15,
+    position: [-0.01, -3.2, -0.1],
+  },
+  gamer: {
+    filename: "gamer",
+    scale: 2,
+    position: [-0.01, -5.5, -0.1],
+  },
+  leader: {
+    filename: "leader",
+    scale: 1,
+    position: [-0.01, -3, -1.1],
+  },
+  math: {
+    filename: "math",
+    scale: 0.0075,
+    position: [-0.01, -3.4, -0.1],
+  },
+  philosphy: {
+    filename: "philosphy",
+    scale: 0.75,
+    position: [-0.01, -3.2, -0.1],
+  },
+  scientist: {
+    filename: "scientist",
+    scale: 0.75,
+    position: [-0.01, -5.3, -0.1],
+  },
+  teacher: {
+    filename: "teacher",
+    scale: 0.02,
+    position: [-0.01, -3.2, -0.1],
+  },
+};
 
 const Model: React.FC<{ model: ModelType }> = ({ model }) => {
   const computer = useGLTF(`./gltf-models/${model}/scene.gltf`);
@@ -30,8 +84,8 @@ const Model: React.FC<{ model: ModelType }> = ({ model }) => {
       <pointLight intensity={1} />
       <primitive
         object={computer.scene}
-        scale={0.75}
-        position={[0, -3.25, -1.5]}
+        scale={models[model].scale}
+        position={models[model].position}
         rotation={[-0.01, -0.2, -0.1]}
       />
     </mesh>

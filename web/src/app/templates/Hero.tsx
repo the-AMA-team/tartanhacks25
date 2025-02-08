@@ -37,7 +37,7 @@ const Hero: React.FC<{
         </div>
 
         <div>
-          <h1 className={`${styles.heroHeadText} text-white`}>
+          <h1 className={`${styles.heroHeadText} text-${theme.priamryText}`}>
             {" "}
             {title.split(" ").slice(0, -1).join("")}{" "}
             <span className={`text-${theme.accentText}`}>
@@ -51,22 +51,6 @@ const Hero: React.FC<{
       </div>
 
       <ModelCanvas model={model} />
-
-      <div className="absolute xs:bottom-10 bottom-32 w-full flex justify-center items-center">
-        <div className="w-[35x] h-[64px] rounded-3xl border-4 border-secondary flex justify-center items-start p-2">
-          <motion.div
-            animate={{
-              y: [0, 24, 0],
-            }}
-            transition={{
-              duration: 1.5,
-              repeat: Infinity,
-              repeatType: "loop",
-            }}
-            className="w-3 h-3 rounded-full bg-secondary mb-1"
-          />
-        </div>
-      </div>
     </section>
   );
 };
