@@ -30,9 +30,7 @@ except:
 
 
 user_id = cl.user_id_from_username("saucy.boii.tybalt")
-print(user_id)
-
-print("done")
+print("User ID", user_id)
 
 medias = cl.user_medias(user_id, 20)
 print(medias)
@@ -40,12 +38,7 @@ dict = cl.account_info().model_dump() # not sure if it is actually a dictionary
 keys_list = list(dict.keys())
 
 print(keys_list)
-
-print(dict["pk"])
-
-print("Type")
-print(type(medias[0]))
-
+1
 posts = []
 
 for i in range(len(medias)):
