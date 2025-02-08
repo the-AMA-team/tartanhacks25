@@ -1,12 +1,17 @@
 from instagrapi import Client
+import json
 
 
 class Profile:
     def __init__(self, username, profile_pic, bio, posts):
         self.username = username
-        self.profile_pic = profile_pic
+        self.profile_pic = str(profile_pic)
         self.bio = bio
-        self.posts = posts
+
+        posts2 = []
+        for i in range(len(posts)):
+            posts2.append(posts[i].__dict__)
+        self.posts = posts2
 
     def __str__(self):
         return "" + self.username + " " + str(self.profile_pic) + " " + self.bio
@@ -14,16 +19,17 @@ class Profile:
 
 class Post:
     def __init__(self, url, caption):
-        self.url = url
+        self.url = str(url)
         self.caption = caption
 
     def __str__(self):
         return "" + str(self.url) + " " + self.caption
 
 
-def getPosts(username, password):
-    cl = Client()
-    cl.delay_range = [1, 3]
+def getPosts(username, password, cl):
+
+    print("Username: ", username)
+    print("Password: ", password)
 
     try:
         cl.login(username, password)
