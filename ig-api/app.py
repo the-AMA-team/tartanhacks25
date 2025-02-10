@@ -9,7 +9,7 @@ app = Flask(__name__)
 CORS(app)
 
 cl = Client()
-# cl.delay_range = [1, 3]
+cl.delay_range = [1, 3]
 
 
 @app.route("/test")
