@@ -33,7 +33,7 @@ const models = {
   explorer: {
     filename: "explorer",
     scale: 15,
-    position: [-0.01, -3.2, -0.1],
+    position: [-0.01, -2.2, -0.1],
   },
   gamer: {
     filename: "gamer",
@@ -50,10 +50,10 @@ const models = {
     scale: 0.0075,
     position: [-0.01, -3.4, -0.1],
   },
-  philosphy: {
-    filename: "philosphy",
-    scale: 0.75,
-    position: [-0.01, -3.2, -0.1],
+  philosophy: {
+    filename: "philosophy",
+    scale: 0.15,
+    position: [-0.01, -2.2, -0.1],
   },
   scientist: {
     filename: "scientist",

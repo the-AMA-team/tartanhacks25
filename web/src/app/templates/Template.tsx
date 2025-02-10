@@ -20,7 +20,7 @@ const WebsiteTemplate: React.FC<WebsiteTemplateProps> = ({
           return (
             <div
               key={idx}
-              className={`p-24 bg-${theme.start} ring-2 ring-${theme.priamryText} my-10 mx-5 text-white text-xl rounded-2xl`}
+              className={`p-20 bg-${theme.start} ring-1 ring-slate-100 my-10 mx-5 text-white text-xl font-bold rounded-2xl shadow-lg`}
             >
               {card}
             </div>
@@ -32,10 +32,11 @@ const WebsiteTemplate: React.FC<WebsiteTemplateProps> = ({
           return (
             <div key={idx} className="w-4/5 m-auto">
               <div
-                className={`text-3xl text-${theme.priamryText} py-2 font-semibold capitalize`}
+                className={`text-3xl text-${theme.priamryText} font-semibold capitalize`}
               >
                 {section.title}
               </div>
+              <hr className="pb-1 pt-2" />
               <div className={`text-${theme.priamryText} mb-8`}>
                 {section.content}
               </div>

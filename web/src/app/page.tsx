@@ -89,49 +89,55 @@ export default function Home() {
   }
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-neutral-200 px-64">
-      <div className="m-auto w-2/3">
-        <div className="text-7xl font-bold">Gram-Folio</div>
+    <div className="flex justify-center items-center h-screen bg-neutral-200">
+      <div className="m-auto w-2/3 px-64">
+        <div className="text-7xl font-bold">Gram-folio</div>
         <div className="2xl font-semibold px-2">
           Your personality, your skills,{" "}
-          <span className="text-pink-500">your website</span>
+          <span className="text-pink-500">your website.</span>
         </div>
       </div>
-      <div className="bg-pink-600 text-white px-5 py-14 w-1/3 rounded-lg shadow-sm">
-        <div className="text-lg text-center">Instagram Posts</div>
-        <div className="m-auto w-2/3">
-          <input
-            type="text"
-            ref={usernameRef}
-            className="p-2 m-1 outline-none rounded-md w-full focus:ring-2"
-            placeholder="Username"
-          />
-        </div>
-        <div className="m-auto w-2/3">
-          <input
-            type="password"
-            name="password"
-            ref={passRef}
-            className="p-2 m-1 outline-none rounded-md w-full focus:ring-2"
-            placeholder="Password"
-          />
-        </div>
-        <div className="text-lg text-center mt-1">Resume</div>
-        <div className="m-auto w-2/3">
-          <textarea
-            value={resumeString}
-            onChange={(e) => setResumeString(e.target.value)}
-            className="h-1/2 w-full outline-none p-2 m-1 rounded-md text-black"
-            placeholder="Paste your resume"
-          />
-          <button
-            className={`bg-pink-100 w-full p-2 rounded-md text-pink-500 m-1 ${
-              loading !== "Generate Website" && "animate-pulse"
-            }`}
-            onClick={() => startWebsiteGen()}
-          >
-            {loading}
-          </button>
+      <div className="bg-pink-600 text-white w-1/3 h-screen flex shadow-sm">
+        <div className="m-auto">
+          <div className="text-lg font-semibold text-center">
+            Login to Instagram
+          </div>
+          <div className="m-auto w-2/3">
+            <input
+              type="text"
+              ref={usernameRef}
+              className="p-2 m-1 outline-none rounded-md w-full text-black focus:ring-2"
+              placeholder="Username"
+            />
+          </div>
+          <div className="m-auto w-2/3">
+            <input
+              type="password"
+              name="password"
+              ref={passRef}
+              className="p-2 m-1 outline-none rounded-md w-full text-black focus:ring-2"
+              placeholder="Password"
+            />
+          </div>
+          <div className="text-lg mt-1 font-semibold text-center">
+            Your Resume
+          </div>
+          <div className="m-auto w-2/3">
+            <textarea
+              value={resumeString}
+              onChange={(e) => setResumeString(e.target.value)}
+              className="h-1/2 w-full outline-none p-2 m-1 rounded-md text-black"
+              placeholder="Paste your resume"
+            />
+            <button
+              className={`bg-pink-100 w-full p-2 rounded-md text-pink-500 m-1 ${
+                loading !== "Generate Website" && "animate-pulse"
+              }`}
+              onClick={() => startWebsiteGen()}
+            >
+              {loading}
+            </button>
+          </div>
         </div>
         {websiteParams && JSON.stringify(websiteParams)}
       </div>
