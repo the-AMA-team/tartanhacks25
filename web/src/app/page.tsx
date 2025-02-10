@@ -106,7 +106,7 @@ export default function Home() {
             <input
               type="text"
               ref={usernameRef}
-              className="p-2 m-1 outline-none rounded-md w-full text-black focus:ring-2"
+              className="p-2 m-1 outline-none rounded-md w-full text-black focus:ring-2 text-black"
               placeholder="Username"
             />
           </div>
@@ -115,7 +115,7 @@ export default function Home() {
               type="password"
               name="password"
               ref={passRef}
-              className="p-2 m-1 outline-none rounded-md w-full text-black focus:ring-2"
+              className="p-2 m-1 outline-none rounded-md w-full text-black focus:ring-2 text-black"
               placeholder="Password"
             />
           </div>
